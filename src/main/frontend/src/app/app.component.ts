@@ -1,11 +1,20 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'dl-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  selector: 'app-root',
+  template: `<h1>{{title}}</h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/heroes">Heroes</a>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+  `,
+  styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'Tour of Heroes';
+
+
 }
