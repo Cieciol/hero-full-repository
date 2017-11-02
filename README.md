@@ -28,6 +28,7 @@ Go to `src/main/frontend` and run `ng serve`.
 
 Now we should work with `http://localhost:4200` since this is where the Livereload server will serve the content. All the requests will be proxied to the Spring Boot backend at `http://localhost:8080`.
 
+
 We can change the proxy url in the [.ember-cli](src/main/frontend/.ember-cli) file.
 
 ### How the build process works
