@@ -11,7 +11,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {HeroesSearchComponent} from './heroes-search/heroes-search.component';
-import {InMemoryDataService} from "./hero/in-memory-data.service";
+//import {InMemoryDataService} from "./hero/in-memory-data.service";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
     FormsModule,
     HttpModule,
      HttpClientModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+ //   InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   providers: [HeroService],
