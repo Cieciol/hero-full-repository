@@ -22,6 +22,7 @@ public class HeroesBinder implements HeroService {
     public List<Hero> getAllHeroes() {
         return heroes;
     }
+    int numerator = heroes.size();
 
     @Override
     public Hero getHeroById(int id) throws HeroNotFoundException {
@@ -45,5 +46,13 @@ public class HeroesBinder implements HeroService {
         Hero deletedHero = this.getHeroById(id);
         if(!heroes.remove(deletedHero))throw new Exception("problems with deleting hero occured");
         return deletedHero;
+    }
+
+    @Override
+    public Hero addHero(String heroName) throws Exception {
+        this.heroes.size();
+        Hero createdHero = new Hero(numerator++,heroName);
+        if(!this.heroes.add(createdHero)) throw new Exception("hero couldnt be added to List");
+        return createdHero;
     }
 }

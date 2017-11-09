@@ -10,5 +10,5 @@ public interface HeroService {
     Hero getHeroById(int id) throws HeroNotFoundException;
     Hero updateHero(Hero hero) throws HeroNotFoundException;
     Hero deleteHero(int id) throws HeroNotFoundException, Exception;
-
+    Hero addHero(String heroName)throws Exception;
 }

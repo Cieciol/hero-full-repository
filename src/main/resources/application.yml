@@ -1,2 +1,5 @@
 #spring:
     #profiles.active: staging
+
+logging.level.org.springframework.web=ERROR
+logging.level.com.dlizarra=DEBUG

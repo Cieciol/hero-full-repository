@@ -4,6 +4,9 @@ package com.dlizarra.starter.heroes.controller;
 import com.dlizarra.starter.exceptions.HeroNotFoundException;
 import com.dlizarra.starter.heroes.model.Hero;
 import com.dlizarra.starter.heroes.service.HeroService;
+import com.fasterxml.jackson.databind.node.TextNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +20,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class HeroesController {
 
+    Logger logger = LoggerFactory.getLogger(HeroesController.class);
     @Autowired
     HeroService heroService;
 
@@ -58,5 +62,17 @@ public class HeroesController {
             return new ResponseEntity<Hero>(HttpStatus.EXPECTATION_FAILED);
         }
     }
+
+    @PostMapping(value = "/heroes", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Hero> createHero(@RequestBody() TextNode name) {
+        try {
+            return new ResponseEntity<Hero>(heroService.addHero(name.asText()), HttpStatus.CREATED);
+        } catch (Exception ex) {
+            logger.debug(ex.getMessage());
+            ex.printStackTrace();
+            return new ResponseEntity<Hero>(HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
 
 }
